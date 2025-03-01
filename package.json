@@ -1,0 +1,33 @@
+{
+  "name": "eval-express",
+  "version": "0.1.0",
+  "description": "一个字符串表达式解析和求解运行库",
+  "main": "./src/index.js",
+  "typings": "./types/index.d.ts",
+  "sideEffects": false,
+  "scripts": {
+    "serve": "oipage-cli serve -p 20000"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/oi-contrib/evalExpress.git"
+  },
+  "keywords": [
+    "express",
+    "babel",
+    "eval",
+    "value"
+  ],
+  "author": {
+    "name": "zxl20070701",
+    "url": "https://zxl20070701.github.io/notebook/home.html"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/oi-contrib/evalExpress/issues"
+  },
+  "homepage": "https://github.com/oi-contrib/evalExpress",
+  "devDependencies": {
+    "oipage": "^1.2.0"
+  }
+}

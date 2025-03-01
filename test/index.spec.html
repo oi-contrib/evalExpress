@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>测试用例 | evalExpress</title>
+</head>
+
+<body>
+
+    <script type="module">
+        import { evalExpress, getValue, setValue } from "eval-express";
+
+        console.log("-------evalExpress-------");
+
+        console.log('flag', evalExpress({ a: 'flag' }, 'a', {}));
+        console.log(11, evalExpress({ flag: 2 }, 'flag+10', { flag: 1 }));
+        console.log(-9, evalExpress({ index: -1 }, "a.b[index+1]-10", { a: { b: [1] } }));
+        console.log(-8.7, evalExpress({ a: 1, b: 2, d: 3 }, "(a+b)/10-c[d]", { c: [6, 7, 8, 9] }));
+        console.log(104, evalExpress([100], "[((a+b)-c)*f]+d", { a: 1, b: 2, c: 3, d: 4, f: 5 }));
+        console.log(false, evalExpress({ flag: false }, "!flag", { flag: true }));
+        console.log(true, evalExpress({ flag: false }, "(a>0 &&b<=1) || !flag", { flag: true, a: 2, b: 1 }));
+        console.log(true, evalExpress({}, '"(flag)" == "("+temp+")"', { temp: 'flag' }));
+        console.log(false, evalExpress({}, '"(flag)" == "("+temp+")"', { temp: 'xxx' }));
+        console.log('flag2', evalExpress({}, 'a>10?"flag1":"flag2"', { a: 1 }));
+        console.log('flag1', evalExpress({}, 'a>10?"flag1":"flag2"', { a: 11 }));
+
+
+        console.log("-------getValue-------");
+
+        console.log(10, getValue({ a: 'flag' }, 'a', { flag: 10 }));
+        console.log(3, getValue([{ 'value-index': [1, 2, 3] }], "[0]['value-index'][index+1]", { index: 1 }));
+
+
+        console.log("-------setValue-------");
+
+        console.log({ a: 11 }, setValue({ a: 10 }, '"a"', 11, {}));
+        console.log({ a: { b: { key: 'yes' } } }, setValue({}, '["a"].b[c]', 'yes', { c: 'key' }));
+
+
+    </script>
+
+</body>
+
+</html>
