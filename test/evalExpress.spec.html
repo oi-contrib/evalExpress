@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>测试用例 | evalExpress 问题修复</title>
+</head>
+
+<body>
+
+    <script type="module">
+        import { evalExpress } from "eval-express";
+
+        console.log(7, evalExpress({}, 'a.length', { a: "1234567" }));
+        console.log(7, evalExpress({}, 'a.length', { a: new String("1234567") }));
+        console.log("1234567", evalExpress({}, 'a', { a: "1234567" }));
+        console.log(true, evalExpress({}, 'a', { a: true }));
+        console.log("123", evalExpress({}, 'a.b', { a: { b: "123" } }));
+
+    </script>
+
+</body>
+
+</html>

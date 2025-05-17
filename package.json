@@ -1,6 +1,6 @@
 {
   "name": "eval-express",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "一个字符串表达式解析和求解运行库",
   "main": "./src/index.js",
   "typings": "./types/index.d.ts",
